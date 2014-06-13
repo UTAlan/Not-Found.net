@@ -32,18 +32,33 @@ if ($feed = $rss->get($url)) {
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<title>Not-Found.net</title>
 	<style>
+	h2 {
+		width: 1000px;
+		margin: 0 auto;
+	}
+	#container {
+		position: relative;
+		width: 100%;
+		height: 1000px;
+		overflow: hidden;
+	}
+	#outerdiv { 
+		position:relative;
+		width: 1000px;
+		margin: 0 auto;
+	}
 	#innerdiv {
 		position:absolute;
 		display: none;
 		top:-200px;
 		left:0px;
-		width:1000;
+		width:1000px;
 		height:825px;
 	}
 	</style>
 </head>
 <body>
-	<h1>404 - Page Not Found</h1>
+	<h2>Page not found. Neither is this child.</h2>
 	<div id="container">
 		<div id="outerdiv">      
 			<iframe id="innerdiv" src="http://www.missingkids.com/poster/NCMC/<?php echo $childId; ?>" scrolling="no" frameborder="0"></iframe>
@@ -56,7 +71,8 @@ if ($feed = $rss->get($url)) {
 	}
 	</script>
 </body> 
-<?php	
+		<?php
+	}
 }
 else {
 	die ('Error: RSS file not found...');
