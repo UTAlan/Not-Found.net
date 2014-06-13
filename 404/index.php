@@ -25,33 +25,38 @@ if ($feed = $rss->get($url)) {
 		$childId = substr($childId, 0, $ampPos);
 		
 		?>
-		<style>
-		#innerdiv {
-			position:absolute;
-			display: none;
-			top:-200px;
-			left:0px;
-			width:1000;
-			height:825px;
-		}
-		</style>
-		<div id="container">
-			<div id="outerdiv">      
-				<iframe id="innerdiv" src="http://www.missingkids.com/poster/NCMC/<?php echo $childId; ?>" scrolling="no" frameborder="0"></iframe>
-			</div>
-		</div>
-		<script>
-		document.getElementById('innerdiv').onload = setTimeout(displayIframe, 4000);
-		function displayIframe() {
-			document.getElementById('innerdiv').style.display = 'inline';
-		}
-		</script>
-		<?php
-	} else {
-		
+
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Not-Found.net</title>
+	<style>
+	#innerdiv {
+		position:absolute;
+		display: none;
+		top:-200px;
+		left:0px;
+		width:1000;
+		height:825px;
 	}
-	
-	
+	</style>
+</head>
+<body>
+	<h1>404 - Page Not Found</h1>
+	<div id="container">
+		<div id="outerdiv">      
+			<iframe id="innerdiv" src="http://www.missingkids.com/poster/NCMC/<?php echo $childId; ?>" scrolling="no" frameborder="0"></iframe>
+		</div>
+	</div>
+	<script>
+	document.getElementById('innerdiv').onload = setTimeout(displayIframe, 4000);
+	function displayIframe() {
+		document.getElementById('innerdiv').style.display = 'inline';
+	}
+	</script>
+</body> 
+<?php	
 }
 else {
 	die ('Error: RSS file not found...');
